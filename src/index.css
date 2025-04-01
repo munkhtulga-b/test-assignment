@@ -1,0 +1,67 @@
+@import "./styles/checkbox.css";
+@import "./styles/divider.css";
+@import "./styles/button.css";
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.woff2") format("woff2"),
+    url("/fonts/Montserrat-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --primary-color: #1f2128;
+  --secondary-color: #ffce22;
+  --secondary-hover-color: #ffd84d;
+  --divider-color: #cdcdcd;
+  --primary-blue: #5087f8;
+  --border-color: #eeeeee;
+}
+
+html,
+body {
+  font-family: "Montserrat", sans-serif !important;
+  color: var(--primary-color) !important;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px 10px 0px;
+  width: 370px;
+  box-shadow: 0px 8px 15px 0px rgba(20, 20, 20, 0.12),
+    0px 0px 4px 0px rgba(20, 20, 20, 0.1);
+  border-radius: 6px;
+  border: var(--border-color) 1px solid;
+}
+
+.checklist .unordered-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.checklist .unordered-list .unordered-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 22px 0 22px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.checklist .button-wrapper {
+  display: flex;
+  padding: 10px 15px;
+}
