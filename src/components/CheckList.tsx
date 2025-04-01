@@ -35,6 +35,10 @@ const CheckList = () => {
     setCheckedItems(checkedItems.filter((item) => item !== id));
   };
 
+  const handleCheckboxClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
     <div className="checklist">
       <ul className="unordered-list">
@@ -43,10 +47,12 @@ const CheckList = () => {
           onClick={() => onCheckAll(checkedItems.length !== list.length)}
         >
           <span>All pages</span>
-          <Checkbox
-            checked={checkedItems.length === list.length}
-            onChange={onCheckAll}
-          />
+          <div onClick={handleCheckboxClick}>
+            <Checkbox
+              checked={checkedItems.length === list.length}
+              onChange={onCheckAll}
+            />
+          </div>
         </li>
         <Divider />
         {list.map((item) => (
@@ -58,10 +64,12 @@ const CheckList = () => {
             }
           >
             <span>{`Page ${item.id}`}</span>
-            <Checkbox
-              checked={checkedItems.includes(item.id)}
-              onChange={(e) => onCheckItem(item.id, e)}
-            />
+            <div onClick={handleCheckboxClick}>
+              <Checkbox
+                checked={checkedItems.includes(item.id)}
+                onChange={(e) => onCheckItem(item.id, e)}
+              />
+            </div>
           </li>
         ))}
       </ul>
